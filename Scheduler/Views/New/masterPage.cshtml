@@ -1,0 +1,90 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] </title>
+    <link rel="shortcut icon" type="image/x-icon" href="~/images/favicon.png">
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/DataTable/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+
+    @*<link href="~/css/datepicker.css" rel="stylesheet" />*@
+    @*<link href="~/css/DataTable/daterangepicker.css" rel="stylesheet" />*@
+    @*<link href="~/css/DataTable/bootstrap-datetimepicker.min.css" rel="stylesheet" />*@
+    <link href="~/DTPicker/jquery.datetimepicker.min.css" rel="stylesheet" />
+    <script src="~/js/jquery-3.6.0.js"></script>
+
+</head>
+<body>
+
+    <div class="container-fluid">
+        @Html.Partial("header")
+        @Html.Partial("sidemenu")
+        @RenderBody()
+    </div>
+
+
+    <script src="~/js/DataTable/jquery.dataTables.min.js"></script>
+    <script src="~/js/DataTable/dataTables.bootstrap5.min.js"></script>
+
+    <script src="~/js/moment.min.js"></script>
+    @*<script src="~/js/DataTable/bootstrap-datetimepicker.min.js"></script>*@
+    @*<script src="~/js/DataTable/daterangepicker.min.js"></script>*@
+    @*<script src="~/js/month.js"></script>*@
+    <script src="~/DTPicker/jquery.datetimepicker.full.min.js"></script>
+    @*<script src="~/js/datepicker.all.js"></script>*@
+    <script src="~/js/jquery.slimscroll.min.js"></script>
+
+    <script src="~/js/jquery.validate.js"></script>
+    <script src="~/js/TectonaValidate.js"></script>
+
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+
+    <script src="~/js/DataTable/Bootstrap_class.js"></script>
+    <script src="~/js/app.js"></script>
+
+
+    <script>
+        //$('.calender').datePicker();
+
+        //year picker
+        //$('.cal_year').datePicker({
+        //    format: 'YYYY'
+        //});
+
+        //$('.datepicker').datetimepicker({
+        //    timepicker: false,
+        //    format: "d/m/Y",
+        //});
+                //month picker
+                //$('.cal_month').datePicker({
+                //    format: 'YYYY-MM'
+                //});
+
+    </script>
+    @*<script>
+            $(document).ready(function () {
+                var vdate = new Date();
+
+
+                if ($('.datetimepicker').length > 0) {
+                    $('.datetimepicker').datetimepicker({
+                        format: 'MM/DD/YYYY',
+                        icons: {
+                            up: "<svg viewBox='0 0 384 512' height='15' width='15'><path d='M352 352c-8.188 0-16.38-3.125-22.62-9.375L192 205.3l-137.4 137.4c-12.5 12.5-32.75 12.5-45.25 0s-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25C368.4 348.9 360.2 352 352 352z'/></svg>",
+                            down: "<svg viewBox='0 0 384 512' height='15' width='15'><path d='M192 384c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L192 306.8l137.4-137.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-160 160C208.4 380.9 200.2 384 192 384z'/></svg>",
+                            next: "<svg viewBox='0 0 256 512' width='15' height='15'><path d='M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z'/></svg>",
+                            previous: "<svg viewBox='0 0 256 512' width='15' height='15'><path d='M192 448c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l137.4 137.4c12.5 12.5 12.5 32.75 0 45.25C208.4 444.9 200.2 448 192 448z'/></svg>"
+                        }
+                    }).on('changeDate', function (e) {
+                        console.log(e.format());
+                    });
+                }
+            });
+        </script>*@
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

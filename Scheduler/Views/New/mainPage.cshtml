@@ -1,0 +1,739 @@
+﻿
+@{
+    ViewData["Title"] = "mainPage";
+    Layout = "~/Views/New/masterPage.cshtml";
+}
+<style>
+    .week, .week123 {
+        display: none;
+    }
+
+    .Month {
+        display: none;
+    }
+</style>
+
+
+
+
+
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="page-header">
+            <div class="tec_row">
+                <div class="tec_col-6">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Project</a></li>
+                        <li class="breadcrumb-item active">Project 3</li>
+                    </ul>
+                </div>
+                <div class="tec_col-6">
+                    <!-- Button to Open the Modal -->
+                    <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        Create schedule
+                    </button>
+
+                    <!-- The Modal -->
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Create Schedule</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="Formreset()"></button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <form id="Form_FRM_01">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <label class="form-label mt-3">Schedule Name: </label>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control mt-3" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <label class="form-label mt-3">Type: </label>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <select class="form-select mt-3" id="selectTag" onchange="Weeklyxyz()">
+                                                    <option value="1" hidden>--select type--</option>
+                                                    <option value="2">Daily</option>
+                                                    <option value="3">Run once</option>
+                                                    <option value="4">Weekly</option>
+                                                    <option value="5">Monthly</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row week" id="Week0">
+                                            <div class="col-sm-3">
+                                                <label class="form-label">Week: </label>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> M</label>
+                                                <input type="checkbox" class="form-check-input" id="day1" onclick="checkDayz(day1, Mon)" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> T</label>
+                                                <input type="checkbox" class="form-check-input" id="day2" onclick="checkDayz(day2, Tue)" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> W</label>
+                                                <input type="checkbox" class="form-check-input" id="day3" onclick="checkDayz(day3, Wed)" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> T</label>
+                                                <input type="checkbox" class="form-check-input" id="day4" onclick="checkDayz(day4,Thu)" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> F</label>
+                                                <input type="checkbox" class="form-check-input" id="day5" onclick="checkDayz(day5,Fri)" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> S</label>
+                                                <input type="checkbox" class="form-check-input" id="day6" onclick="checkDayz(day6,Sat)" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> S</label>
+                                                <input type="checkbox" class="form-check-input" id="day7" onclick="checkDayz(day7, Sun)" />
+                                            </div>
+                                        </div>
+                                        <div class="row week123" id="Week1">
+                                            <div class="col-sm-3">
+                                                <label class="form-label">Week1: </label>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> M</label>
+                                                <input type="checkbox" class="form-check-input Mon" id="Mon" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> T</label>
+                                                <input type="checkbox" class="form-check-input Tue" id="Tue" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> W</label>
+                                                <input type="checkbox" class="form-check-input Wed" id="Wed" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> T</label>
+                                                <input type="checkbox" class="form-check-input Thu" id="Thu" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> F</label>
+                                                <input type="checkbox" class="form-check-input Fri" id="Fri" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> S</label>
+                                                <input type="checkbox" class="form-check-input Sat" id="Sat" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> S</label>
+                                                <input type="checkbox" class="form-check-input Sun" id="Sun" />
+                                            </div>
+                                        </div>
+                                        <div class="row week123" id="Week2">
+                                            <div class="col-sm-3">
+                                                <label class="form-label">Week2: </label>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> M</label>
+                                                <input type="checkbox" class="form-check-input Mon" id="Mon" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> T</label>
+                                                <input type="checkbox" class="form-check-input Tue" id="Tue" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> W</label>
+                                                <input type="checkbox" class="form-check-input Wed" id="Wed" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> T</label>
+                                                <input type="checkbox" class="form-check-input Thu" id="Thu" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> F</label>
+                                                <input type="checkbox" class="form-check-input Fri" id="Fri" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> S</label>
+                                                <input type="checkbox" class="form-check-input Sat" id="Sat" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> S</label>
+                                                <input type="checkbox" class="form-check-input Sun" id="Sun" />
+                                            </div>
+                                        </div>
+                                        <div class="row week123" id="Week3">
+                                            <div class="col-sm-3">
+                                                <label class="form-label">Week3: </label>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> M</label>
+                                                <input type="checkbox" class="form-check-input Mon" id="Mon" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> T</label>
+                                                <input type="checkbox" class="form-check-input Tue" id="Tue" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> W</label>
+                                                <input type="checkbox" class="form-check-input Wed" id="Wed" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> T</label>
+                                                <input type="checkbox" class="form-check-input Thu" id="Thu" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> F</label>
+                                                <input type="checkbox" class="form-check-input Fri" id="Fri" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> S</label>
+                                                <input type="checkbox" class="form-check-input Sat" id="Sat" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> S</label>
+                                                <input type="checkbox" class="form-check-input Sun" id="Sun" />
+                                            </div>
+                                        </div>
+                                        <div class="row week123" id="Week4">
+                                            <div class="col-sm-3">
+                                                <label class="form-label">Week4: </label>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> M</label>
+                                                <input type="checkbox" class="form-check-input Mon" id="Mon" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> T</label>
+                                                <input type="checkbox" class="form-check-input Tue" id="Tue" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> W</label>
+                                                <input type="checkbox" class="form-check-input Wed" id="Wed" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> T</label>
+                                                <input type="checkbox" class="form-check-input Thu" id="Thu" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> F</label>
+                                                <input type="checkbox" class="form-check-input Fri" id="Fri" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> S</label>
+                                                <input type="checkbox" class="form-check-input Sat" id="Sat" />
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="form-check-label"> S</label>
+                                                <input type="checkbox" class="form-check-input Sun" id="Sun" />
+                                            </div>
+                                        </div>
+                                        <div class="row Month" id="Month">
+                                            <div class="col-sm-3">
+                                                <label class="form-label mt-4">Month: </label>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn btn-light dropdown-toggle mt-3" data-bs-toggle="dropdown" id="button1" onclick="dropdown123()">
+                                                        Dropdown button
+                                                    </button>
+                                                    <ul class="dropdown-menu" onclick="dropdown123()">
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 1</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 2</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 3</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 4</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 5</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 6</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 7</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 8</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 9</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 10</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 11</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 12</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 13</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 14</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 15</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 16</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 17</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 18</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 19</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 20</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 21</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 22</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 23</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 24</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 25</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 26</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 27</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 28</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 29</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check-inline dropdown-item">
+                                                                <input type="checkbox" class="form-check-input" id="check1" name="chck1" />
+                                                                <label class="form-check-label"> 30</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <label class="form-label mt-3">Run Start Time: </label>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <div class="cal-icon">
+                                                    <input type="text" class="tec_form-control tec_form-control-sm DateTime mt-3" name="date" id="startRunTime" onkeydown="return false" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <label class="form-label mt-3">Run End Time: </label>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <div class="cal-icon">
+                                                    <input type="text" class="tec_form-control tec_form-control-sm DateTime mt-3" name="date" id="endRunTime" onkeydown="return false" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <label class="form-label mt-3">Not After Run End Time: </label>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <div class="cal-icon">
+                                                    <input type="text" class="tec_form-control tec_form-control-sm DateTime mt-3" name="date" id="notafterendRunTime" onkeydown="return false" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <label class="form-label mt-3">Start Date-time: </label>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <div class="cal-icon">
+                                                    <input type="text" class="tec_form-control tec_form-control-sm mt-3" id="StartDateTIme" onkeydown="return false" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <label class="form-label mt-3">End Date-time: </label>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <div class="cal-icon">
+                                                    <input type="text" class="tec_form-control tec_form-control-sm mt-3" id="EndDateTIme" onkeydown="return false" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 text-center">
+                                                <button type="submit" class="btn btn-primary mt-3" id="submitSchedule">Create Schedule</button>
+                                            </div>
+                                            <div class="col-sm-6 text-center">
+                                                <button class="btn btn-danger mt-3" data-bs-dismiss="modal">Cancel</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@*<script>
+        $(document).ready(function () {
+            $('.DateTime').datetimepicker({
+                datepicker: false,
+                timepicker: true,
+                format: 'H:i',
+            });
+        })
+    </script>*@
+
+<script>
+    $(document).ready(function () {
+        validateSingleForm('#Form_FRM_01')
+
+    })
+</script>
+
+
+
+<script>
+    $('#submitSchedule').click(function (e) {
+        var $valid = $('#Form_FRM_01').valid();
+        if (!$valid) {
+            $validatorvar.focusInvalid();
+            return false;
+        } else {
+            $('#Form_FRM_01').trigger('reset')
+        }
+    });
+</script>
+
+
+
+<script>
+    function Formreset() {
+        $('#Form_FRM_01').trigger('reset')
+    }
+</script>
+
+
+<script>
+    select1 = document.getElementById('selectTag');
+    selectWeek0 = document.getElementById('Week0');
+    selectWeek1 = document.getElementById('Week1');
+    selectWeek2 = document.getElementById('Week2');
+    selectWeek3 = document.getElementById('Week3');
+    selectWeek4 = document.getElementById('Week4');
+    selectMonth = document.getElementById('Month');
+    Monday = document.getElementsByClassName('Mon');
+    Tuesday = document.getElementsByClassName('Tue');
+    Wednesday = document.getElementsByClassName('Wed');
+    Thursday = document.getElementsByClassName('Thu');
+    Friday = document.getElementsByClassName('Fri');
+    Saturday = document.getElementsByClassName('Sat');
+    Sunday = document.getElementsByClassName('Sun');
+    Day1 = document.getElementById('day1');
+    Day2 = document.getElementById('day2');
+    Day3 = document.getElementById('day3');
+    Day4 = document.getElementById('day4');
+    Day5 = document.getElementById('day5');
+    Day6 = document.getElementById('day6');
+    Day7 = document.getElementById('day7');
+    //console.log(Monday);
+
+    function Weeklyxyz() {
+        if (select1.value == 4) {
+            selectWeek0.classList.remove('week');
+            selectMonth.classList.add('Month');
+        }
+        else if (select1.value == 5) {
+            selectMonth.classList.remove('Month');
+            selectWeek0.classList.add('week');
+            selectWeek1.classList.add('week123');
+            selectWeek2.classList.add('week123');
+            selectWeek3.classList.add('week123');
+            selectWeek4.classList.add('week123');
+        }
+        else {
+            selectMonth.classList.add('Month');
+            selectWeek0.classList.add('week');
+            selectWeek1.classList.add('week123');
+            selectWeek2.classList.add('week123');
+            selectWeek3.classList.add('week123');
+            selectWeek4.classList.add('week123');
+        }
+    }
+    function checkDayz(Days, Weekdays) {
+        if (!Day1.checked == true && !Day2.checked == true && !Day3.checked == true && !Day4.checked == true && !Day5.checked == true && !Day6.checked == true && !Day7.checked == true) {
+            for (i = 0; i < Monday.length; i++) {
+                Monday[i].checked = false;
+                Tuesday[i].checked = false;
+                Wednesday[i].checked = false;
+                Thursday[i].checked = false;
+                Friday[i].checked = false;
+                Saturday[i].checked = false;
+                Sunday[i].checked = false;
+            }
+
+            selectWeek1.classList.add('week123');
+            selectWeek2.classList.add('week123');
+            selectWeek3.classList.add('week123');
+            selectWeek4.classList.add('week123');
+
+        }
+        else if (Days.checked == true) {
+            for (i = 0; i < Weekdays.length; i++) {
+                Weekdays[i].checked = true;
+            }
+
+            selectWeek1.classList.remove('week123');
+            selectWeek2.classList.remove('week123');
+            selectWeek3.classList.remove('week123');
+            selectWeek4.classList.remove('week123');
+        }
+        else {
+            for (i = 0; i < Weekdays.length; i++) {
+                Weekdays[i].checked = false;
+            }
+        }
+    }
+</script>
+
+
+<script>
+    checkArr = document.querySelectorAll('#check1');
+    dropdownButton = document.getElementById('button1');
+
+
+    function dropdown123() {
+        checkedArray = document.querySelectorAll('input[name="chck1"]:checked');
+       // console.log(checkedArray);
+
+        for (i = 0; i < checkArr.length; i++) {
+            if (checkArr[i].checked == true) {
+                for (j = 0; j < checkedArray.length; j++) {
+                    dropdownButton.innerHTML = checkedArray.length + " " + "selected!";
+                }
+            }
+            else {
+                dropdownButton.innerHTML = checkedArray.length + " " + "selected!";
+            }
+        }
+    }
+</script>
+
+
+
+
+
+
+
+<script>
+        $(document).ready(function () {
+
+            $('#startRunTime').datetimepicker({
+                datepicker: false,
+                format:"H:i ",
+                step:5,
+                onShow: function (ct) {
+                    this.setOptions({
+                        maxTime: $('#endRunTime').val() ? $('#endRunTime').val() : false
+                    })
+                },
+            });
+
+            $('#endRunTime').datetimepicker({
+                datepicker: false,
+                format: "H:i",
+                step: 5,
+                onShow: function (ct) {
+                    this.setOptions({
+                        minTime: $('#startRunTime').val() ? $('#startRunTime').val() : false
+                    })
+                },
+            });
+
+            $('#notafterendRunTime').datetimepicker({
+                datepicker: false,
+                format: "H:i",
+                step: 5,
+                onShow: function (ct) {
+                    this.setOptions({
+                        minTime: $('#endRunTime').val() ? $('#endRunTime').val() : false
+                    })
+                },
+            });
+        });
+    </script>
+
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#StartDateTIme').datetimepicker({
+            timepicker: false,
+            format: "d/m/Y",
+            //format: 'MM/DD/YYYY',
+            onShow: function (ct) {
+                //debugger;
+                this.setOptions({
+                    maxDate: $('#EndDateTIme').val() ? $('#EndDateTIme').val() : false
+                })
+            },
+        });
+
+        $('#EndDateTIme').datetimepicker({
+            timepicker: false,
+            format: "d/m/Y",
+            //format: 'MM/DD/YYYY',
+            onShow: function (ct) {
+                //debugger;
+                this.setOptions({
+                    minDate: $('#StartDateTIme').val() ? $('#StartDateTIme').val() : false
+                })
+            },
+        });
+    });
+</script>
+
+
+<script>
+    //$('#StartDateTIme').change(function () {
+        //    var startDate = $(this).datepicker('getDate');
+        //    $("#EndDateTIme").datepicker("option", "minDate", startDate);
+        //});
+
+        //$('#EndDateTIme').change(function () {
+        //    var endDate = $(this).datepicker('getDate');
+        //    $("#StartDateTIme").datepicker("option", "maxDate", endDate);
+        //});
+
+        //$("#StartDateTIme").datepicker({});
+        //$("#EndDateTIme").datepicker({});
+</script>
